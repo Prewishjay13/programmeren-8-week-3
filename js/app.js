@@ -9,7 +9,7 @@ const amountOne = document.getElementById("amountOne");
 const amountTwo = document.getElementById("amountTwo");
 const amountThree = document.getElementById("amountThree");
 
-const trainbtn = document.getElementById("train");
+const trainbtn = document.querySelector("#train");
 const loss = document.getElementById("loss");
 const result = document.getElementById("result");
 const confidence = document.getElementById("confidence");
