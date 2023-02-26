@@ -4,13 +4,11 @@ const videoStatus = document.getElementById("videoStatus");
 const labelOneBtn = document.querySelector("#labelOne");
 const labelTwoBtn = document.querySelector("#labelTwo");
 const labelThreeBtn = document.querySelector("#labelThree");
-const labelFourBtn = document.querySelector("#labelFour");
-const labelFiveBtn = document.querySelector("#labelFive");
+
 const amountOne = document.getElementById("amountOne");
 const amountTwo = document.getElementById("amountTwo");
 const amountThree = document.getElementById("amountThree");
-const amountFour = document.getElementById("amountFour");
-const amountFive = document.getElementById("amountFive");
+
 const trainbtn = document.getElementById("train");
 const loss = document.getElementById("loss");
 const result = document.getElementById("result");
@@ -22,8 +20,7 @@ let totalLoss = 0;
 labelOneBtn.addEventListener("click", () => console.log("button 1"));
 labelTwoBtn.addEventListener("click", () => console.log("button 2"));
 labelThreeBtn.addEventListener("click", () => console.log("button 3"));
-labelFourBtn.addEventListener("click", () => console.log("button 4"));
-labelFiveBtn.addEventListener("click", () => console.log("button 5"));
+
 
 trainbtn.addEventListener("click", () => console.log("train"));
 
@@ -42,7 +39,6 @@ label.innerText = "Ready when you are!";
 
 function modelLoaded() {
     loading.innerText = "Model loaded!";
-    featureExtractor.load('model/model.json');
   }
   
   const featureExtractor = ml5.featureExtractor("MobileNet", modelLoaded);
@@ -54,41 +50,31 @@ function videoReady() {
     videoStatus.innerText = "Video ready!";
   }
 
-  // labelOneBtn.onclick = function() {
-  //   classifier.addImage("one");
-  //   amountOne.innerText = Number(amountOne.innerText) + 1;
-  // };
+  labelOneBtn.onclick = function() {
+    classifier.addImage("one");
+    amountOne.innerText = Number(amountOne.innerText) + 1;
+  };
 
-  // labelTwoBtn.onclick = function() {
-  //   classifier.addImage("two");
-  //   amountTwo.innerText = Number(amountTwo.innerText) + 1;
-  // };
+  labelTwoBtn.onclick = function() {
+    classifier.addImage("two");
+    amountTwo.innerText = Number(amountTwo.innerText) + 1;
+  };
 
-  // labelThreeBtn.onclick = function() {
-  //   classifier.addImage("three");
-  //   amountThree.innerText = Number(amountThree.innerText) + 1;
-  // };
+  labelThreeBtn.onclick = function() {
+    classifier.addImage("three");
+    amountThree.innerText = Number(amountThree.innerText) + 1;
+  };
 
-  // labelFourBtn.onclick = function() {
-  //   classifier.addImage("four");
-  //   amountFour.innerText = Number(amountFour.innerText) + 1;
-  // };
-
-  // labelFiveBtn.onclick = function() {
-  //   classifier.addImage("five");
-  //   amountFive.innerText = Number(amountFive.innerText) + 1;
-  // };
-
-  // trainbtn.onclick = function() {
-  //   classifier.train(function(lossValue) {
-  //     if (lossValue) {
-  //       totalLoss = lossValue;
-  //       loss.innerHTML = `Loss: ${totalLoss}`;
-  //     } else {
-  //       loss.innerHTML = `Done Training! Final Loss: ${totalLoss}`;
-  //     }
-  //   });
-  // };
+  trainbtn.onclick = function() {
+    classifier.train(function(lossValue) {
+      if (lossValue) {
+        totalLoss = lossValue;
+        loss.innerHTML = `Loss: ${totalLoss}`;
+      } else {
+        loss.innerHTML = `Done Training! Final Loss: ${totalLoss}`;
+      }
+    });
+  };
   
   // Show the results
   function gotResults(err, results) {
