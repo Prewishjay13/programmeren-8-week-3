@@ -42,6 +42,7 @@ label.innerText = "Ready when you are!";
 
 function modelLoaded() {
     loading.innerText = "Model loaded!";
+    featureExtractor.load('model/model.json');
   }
   
   const featureExtractor = ml5.featureExtractor("MobileNet", modelLoaded);
@@ -53,41 +54,41 @@ function videoReady() {
     videoStatus.innerText = "Video ready!";
   }
 
-  labelOneBtn.onclick = function() {
-    classifier.addImage("one");
-    amountOne.innerText = Number(amountOne.innerText) + 1;
-  };
+  // labelOneBtn.onclick = function() {
+  //   classifier.addImage("one");
+  //   amountOne.innerText = Number(amountOne.innerText) + 1;
+  // };
 
-  labelTwoBtn.onclick = function() {
-    classifier.addImage("two");
-    amountTwo.innerText = Number(amountTwo.innerText) + 1;
-  };
+  // labelTwoBtn.onclick = function() {
+  //   classifier.addImage("two");
+  //   amountTwo.innerText = Number(amountTwo.innerText) + 1;
+  // };
 
-  labelThreeBtn.onclick = function() {
-    classifier.addImage("three");
-    amountThree.innerText = Number(amountThree.innerText) + 1;
-  };
+  // labelThreeBtn.onclick = function() {
+  //   classifier.addImage("three");
+  //   amountThree.innerText = Number(amountThree.innerText) + 1;
+  // };
 
-  labelFourBtn.onclick = function() {
-    classifier.addImage("four");
-    amountFour.innerText = Number(amountFour.innerText) + 1;
-  };
+  // labelFourBtn.onclick = function() {
+  //   classifier.addImage("four");
+  //   amountFour.innerText = Number(amountFour.innerText) + 1;
+  // };
 
-  labelFiveBtn.onclick = function() {
-    classifier.addImage("five");
-    amountFive.innerText = Number(amountFive.innerText) + 1;
-  };
+  // labelFiveBtn.onclick = function() {
+  //   classifier.addImage("five");
+  //   amountFive.innerText = Number(amountFive.innerText) + 1;
+  // };
 
-  trainbtn.onclick = function() {
-    classifier.train(function(lossValue) {
-      if (lossValue) {
-        totalLoss = lossValue;
-        loss.innerHTML = `Loss: ${totalLoss}`;
-      } else {
-        loss.innerHTML = `Done Training! Final Loss: ${totalLoss}`;
-      }
-    });
-  };
+  // trainbtn.onclick = function() {
+  //   classifier.train(function(lossValue) {
+  //     if (lossValue) {
+  //       totalLoss = lossValue;
+  //       loss.innerHTML = `Loss: ${totalLoss}`;
+  //     } else {
+  //       loss.innerHTML = `Done Training! Final Loss: ${totalLoss}`;
+  //     }
+  //   });
+  // };
   
   // Show the results
   function gotResults(err, results) {
