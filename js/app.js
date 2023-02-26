@@ -51,12 +51,12 @@ function videoReady() {
   }
 
   labelOneBtn.onclick = function() {
-    classifier.addImage("one");
+    classifier.addImage("duck");
     amountOne.innerText = Number(amountOne.innerText) + 1;
   };
 
   labelTwoBtn.onclick = function() {
-    classifier.addImage("two");
+    classifier.addImage("dog");
     amountTwo.innerText = Number(amountTwo.innerText) + 1;
   };
 

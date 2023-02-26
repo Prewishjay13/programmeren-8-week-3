@@ -27,3 +27,27 @@ button:hover {
 video {
     transform: scaleX(-1);
 }
+
+#display_image{
+    width: 375px;
+    height: 211px;
+    border: 1px solid black;
+    background-position: center;
+    background-size: cover;
+}
+
+.nav-links a{
+    color: rgb(226, 226, 226);
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.background{
+  background-color: rgb(23, 158, 167);
+}
+
+.layout{
+    padding: 8px 12px;
+}
