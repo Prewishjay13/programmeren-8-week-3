@@ -12,11 +12,20 @@
 <body>
     <h2>Code voorbeeld met webcam</h2>
     <video autoplay playsinline muted id="webcam" width="533" height="300"></video><br />
+    <h6><span id="loading">Loading base model...</span> | <span id="videoStatus">Loading video...</span></h6>
     <div id="label"></div>
     <br />
     <button id="labelOne">Label one</button>
+    <p><span id="amountOne">0</span> Labeled 1</p>
     <button id="labelTwo">Label two</button>
+    <p><span id="amountTwo">0</span> Labeled 2</p>
     <button id="labelThree">Label three</button>
-    <button id="train">TRAIN</button>
+    <p><span id="amountThree">0</span> Labeled 3</p>
+    <p><button id="train">TRAIN</button><span id="loss"></span></p>
+    <p>
+        <button id="predict">Start guessing!</button><br />
+        My guess is: <span id="result">...</span>
+        , with a confidence of <span id="confidence">...</span>.
+      </p>
 </body>
 </html>
