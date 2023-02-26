@@ -41,7 +41,7 @@ const classifier = featureExtractor.classification(video, videoReady);
 
 function modelLoaded() {
   loading.innerText = "Model loaded!";
-  classifier.load('model.json');
+  featureExtractor.load('model.json');
 }
 
 // A function to be called when the video is finished loading
@@ -88,6 +88,18 @@ function gotResults(err, modelLoaded) {
   }
 }
   
+const image = document.getElementById('output')
+const fileButton = document.querySelector("#file")
+
+fileButton.addEventListener("change", (event)=>{
+    image.src = URL.createObjectURL(event.target.files[0])
+})
+
+image.addEventListener('load', () => userImageUploaded())
+
+function userImageUploaded(){
+    console.log("The image is now visible in the DOM")
+}
 // save.onclick = function() {
 //    featureExtractor.save();
 // };
