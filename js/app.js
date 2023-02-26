@@ -4,19 +4,26 @@ const videoStatus = document.getElementById("videoStatus");
 const labelOneBtn = document.querySelector("#labelOne");
 const labelTwoBtn = document.querySelector("#labelTwo");
 const labelThreeBtn = document.querySelector("#labelThree");
+const labelFourBtn = document.querySelector("#labelFour");
+const labelFiveBtn = document.querySelector("#labelFive");
 const amountOne = document.getElementById("amountOne");
 const amountTwo = document.getElementById("amountTwo");
 const amountThree = document.getElementById("amountThree");
+const amountFour = document.getElementById("amountFour");
+const amountFive = document.getElementById("amountFive");
 const trainbtn = document.querySelector("#train");
 const loss = document.getElementById("loss");
 const result = document.getElementById("result");
 const confidence = document.getElementById("confidence");
 const predict = document.getElementById("predict");
+const save = document.getElementById("save");
 
 let totalLoss = 0;
 labelOneBtn.addEventListener("click", () => console.log("button 1"));
 labelTwoBtn.addEventListener("click", () => console.log("button 2"));
 labelThreeBtn.addEventListener("click", () => console.log("button 3"));
+labelFourBtn.addEventListener("click", () => console.log("button 4"));
+labelFiveBtn.addEventListener("click", () => console.log("button 5"));
 
 trainbtn.addEventListener("click", () => console.log("train"));
 
@@ -61,7 +68,17 @@ function videoReady() {
     amountThree.innerText = Number(amountThree.innerText) + 1;
   };
 
-  train.onclick = function() {
+  labelFourBtn.onclick = function() {
+    classifier.addImage("four");
+    amountFour.innerText = Number(amountFour.innerText) + 1;
+  };
+
+  labelFiveBtn.onclick = function() {
+    classifier.addImage("five");
+    amountFive.innerText = Number(amountFive.innerText) + 1;
+  };
+
+  trainbtn.onclick = function() {
     classifier.train(function(lossValue) {
       if (lossValue) {
         totalLoss = lossValue;
@@ -83,7 +100,11 @@ function videoReady() {
       confidence.innerText = results[0].confidence;
       classifier.classify(gotResults);
     }
-  }
+  };
+
+  save.onclick = function() {
+    featureExtractor.save();
+  };
   
   // Start predicting when the predict button is clicked
   predict.onclick = function() {
